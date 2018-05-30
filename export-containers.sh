@@ -21,7 +21,7 @@ fi
 
 # Check if $CID_LIST already exists - if yes delete it first
 if [ -f $CID_LIST ]; then
-    echo "Soubor existuje"
+    echo "Temporary file exists, removing..."
     rm $CID_LIST
     echo "Temporary file removed, continue..."
 fi
