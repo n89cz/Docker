@@ -3,13 +3,6 @@
 # Export every docker containers to tar files
 #
 
-# The result is a TAR-file
-# $1 must be ID of container - docker ps -a
-#
-
-# docker ps -a
-# show all images - even stopped
-
 CID_LIST=containers.tmp
 DATE=`date +%Y-%m-%d`
 
