@@ -5,18 +5,19 @@
 
 CID_LIST=containers.tmp
 DATE=`date +%Y-%m-%d`
+LOG="export-containers.log"
 
 if [ "$#" -ne 0 ]; then
-    echo "Wrong usage"
-    echo "Do not enter any parameter"
+    echo "Wrong usage" >> $LOG
+    echo "Do not enter any parameter" >> $LOG
     exit 1
 fi
 
 # Check if $CID_LIST already exists - if yes delete it first
 if [ -f $CID_LIST ]; then
-    echo "Temporary file exists, removing..."
+    echo "Temporary file exists, removing..." >> $LOG
     rm $CID_LIST
-    echo "Temporary file removed, continue..."
+    echo "Temporary file removed, continue..." >> $LOG
 fi
 
 docker ps -a | cut -d ' ' -f 1 | tail -n +2 >> $CID_LIST
