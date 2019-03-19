@@ -2,13 +2,27 @@ FROM centos:7
 
 MAINTAINER Martin Dusek <dusek@n89.cz>
 
-RUN yum update -y && \
-    yum install -y mc epel-release git net-tools wget unzip curl iotop ntp && \
-    yum clean all
+RUN yum update -y
 
-# systemd-compatible stop signal
-STOPSIGNAL SIGRTMIN+3
+RUN yum -y install \
+    mc \
+    epel-release \
+    git \
+    net-tools \
+    wget \
+    unzip \
+    iotop \
+    ntp \
+    postfix \
+    iotop \
+    tcpdump \
+    curl \
+    sysstat \
+    rsyslog && \
+    yum clean all && \
+    rm -rf /var/cache/yum
 
+RUN ln -s -f /usr/share/zoneinfo/Europe/Prague /etc/localtime
 
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
     rm -f /lib/systemd/system/multi-user.target.wants/*; \
