@@ -1,0 +1,3 @@
+Centos 7 base container
+
+<!-- Build status: [![Build Status](https://api.travis-ci.org/n89cz/docker-centos7-base-image.svg?branch=master)](https://travis-ci.org/n89cz/docker-centos7-base-image) -->
